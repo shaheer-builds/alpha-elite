@@ -71,10 +71,10 @@ export const siteConfig = {
   ],
   contact: {
     email: 'alphaelitesolutionstrainings@gmail.com',
-    phone: '03233748408',
-    formattedPhone: '0323 3748408',
-    whatsappLink: 'https://wa.me/923233748408',
-    whatsappNumber: '0323 3748408',
+    phone: '03146077809',
+    formattedPhone: '03146077809',
+    whatsappLink: 'https://wa.me/923146077809',
+    whatsappNumber: '03146077809',
     address: 'Chase Up, Bosan Road, Multan, Pakistan',
     locationShort: 'Chase Up, Bosan Road, Multan',
     facebook: 'https://www.facebook.com/profile.php?id=61594513037815',
@@ -619,14 +619,14 @@ Explore our dedicated Walmart marketplace management services and training modul
       category: 'trainings',
       question: 'What are the course fees and upcoming batch schedules?',
       answer:
-        'Course fees and upcoming batch start dates vary by track (marked as TODO in our course listings). Please contact our admissions desk on WhatsApp at 0323 3748408 for current schedule details.',
+        'Course fees and upcoming batch start dates vary by track (marked as TODO in our course listings). Please contact our admissions desk on WhatsApp at 03146077809 for current schedule details.',
     },
     {
       id: 'faq-8',
       category: 'services',
       question: 'Where is Alpha Elite located?',
       answer:
-        'Our corporate office and training lab are located at Chase Up, Bosan Road, Multan, Pakistan. You can visit during business hours (Monday–Friday, 9:00 AM – 6:00 PM) or reach us on WhatsApp at 0323 3748408.',
+        'Our corporate office and training lab are located at Chase Up, Bosan Road, Multan, Pakistan. You can visit during business hours (Monday–Friday, 9:00 AM – 6:00 PM) or reach us on WhatsApp at 03146077809.',
     },
   ],
 };

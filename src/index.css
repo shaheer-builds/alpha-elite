@@ -354,6 +354,39 @@ html.lenis body {
 }
 
 /* Home network constellation */
+.ae-atom {
+  background: radial-gradient(ellipse at center, rgba(200,40,45,0.18), transparent 68%);
+}
+
+.ae-atom-orbits,
+.ae-atom-electrons {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ae-atom-orbits {
+  animation: ae-atom-spin 18s linear infinite;
+}
+
+.ae-atom-electrons {
+  animation: ae-atom-spin-reverse 12s linear infinite;
+}
+
+@keyframes ae-atom-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ae-atom-spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ae-atom-orbits,
+  .ae-atom-electrons {
+    animation: none;
+  }
+}
+
 .ae-net-graphic {
   pointer-events: none;
 }

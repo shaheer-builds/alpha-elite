@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -26,12 +26,6 @@ import { SectionDivider } from '../components/SectionDivider';
 import { FAQSection } from '../components/FAQSection';
 import { ProjectCard } from '../components/ProjectCard';
 import { HeroBackground } from '../components/animations/HeroBackground';
-
-const Hero3DCanvas = lazy(() =>
-  import('../components/Hero3DCanvas').then(({ Hero3DCanvas: Scene }) => ({
-    default: Scene,
-  }))
-);
 
 interface HomeViewProps {
   setActiveTab: (tab: string) => void;
@@ -185,22 +179,36 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {/* Right: 3D Visual & Interactive Canvas */}
             <div className="relative min-w-0">
               <div className="ae-home-hero-card relative w-full min-w-0 rounded-2xl border border-white/10 shadow-2xl bg-gradient-to-b from-neutral-900 via-neutral-950 to-black flex flex-col justify-between p-2">
-                {/* Lazy-loaded 3D marketplace scene */}
-                <Suspense
-                  fallback={
-                    <div
-                      className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(200,40,45,0.32),transparent_68%)]"
-                      aria-hidden="true"
-                    />
-                  }
-                >
-                  <Hero3DCanvas
-                    className="ae-home-hero-scene absolute inset-0 z-0"
-                    heroSectionRef={heroSectionRef}
-                    platformsSectionRef={platformsSectionRef}
-                    onPlatformHighlight={setHighlightedPlatform}
-                  />
-                </Suspense>
+                {/* Rotating atom graphic */}
+                <div className="ae-atom absolute inset-0 z-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+                  <svg viewBox="0 0 320 320" className="h-[82%] w-[82%]" role="presentation">
+                    <defs>
+                      <radialGradient id="ae-atom-core" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#ff8587" />
+                        <stop offset="55%" stopColor="#C8282D" />
+                        <stop offset="100%" stopColor="#6f1014" />
+                      </radialGradient>
+                      <filter id="ae-atom-glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <g className="ae-atom-orbits" fill="none" stroke="#C8282D" strokeWidth="2" opacity="0.9" filter="url(#ae-atom-glow)">
+                      <ellipse cx="160" cy="160" rx="118" ry="46" />
+                      <ellipse cx="160" cy="160" rx="118" ry="46" transform="rotate(60 160 160)" />
+                      <ellipse cx="160" cy="160" rx="118" ry="46" transform="rotate(120 160 160)" />
+                    </g>
+                    <circle cx="160" cy="160" r="28" fill="url(#ae-atom-core)" filter="url(#ae-atom-glow)" />
+                    <g className="ae-atom-electrons" fill="#ff8587" filter="url(#ae-atom-glow)">
+                      <circle cx="278" cy="160" r="7" />
+                      <circle cx="101" cy="109" r="7" />
+                      <circle cx="219" cy="211" r="7" />
+                    </g>
+                  </svg>
+                </div>
 
                 {/* Floating Top Badge */}
                 <div className="relative z-10 flex items-center justify-between p-3 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 m-2">
